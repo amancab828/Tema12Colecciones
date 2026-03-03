@@ -1,6 +1,7 @@
 package ejercicios12_ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ejercicio3 {
@@ -17,7 +18,7 @@ public class Ejercicio3 {
 	En la opción 5,  se pide una cadena al usuario y se le informa si dicha cadena está o no en la lista.*/
 	
 	public void menu() {
-        System.out.println("--- MENÚ ---");
+        System.out.println("\n--- MENÚ ---");
         System.out.println("1. Nueva lista");
         System.out.println("2. Número de cadenas");
         System.out.println("3. Añadir cadena");
@@ -25,14 +26,14 @@ public class Ejercicio3 {
         System.out.println("5. Contiene cadena");
         System.out.println("6. Mostrar lista entera");
         System.out.println("7. Salir");
-        System.out.print("Opción: ");
+        System.out.println("Opción: ");
 	}
 	
 	public void show() {
 		Scanner scanner = new Scanner(System.in);
 		ConsoleInput console = new ConsoleInput(scanner);
 		
-        ArrayList<String> lista = new ArrayList<>();
+        List<String> lista = new ArrayList<>();
         int opcion;
 
         do {
@@ -45,7 +46,7 @@ public class Ejercicio3 {
                     System.out.println("Lista limpiada.");
                 }
 
-                case 2 -> System.out.println("Número de cadenas: " + lista.size());
+                case 2 -> System.out.printf("Número de cadenas: %d", lista.size());
                 
                 case 3 -> {
                     System.out.print("Introduce una cadena: ");
@@ -59,7 +60,7 @@ public class Ejercicio3 {
                         System.out.println("La lista está vacía.");
                     } else {
                         String eliminada = lista.remove(lista.size() - 1);
-                        System.out.println("Eliminada: " + eliminada);
+                        System.out.printf("Eliminada: %s\n", eliminada);
                     }
                 }
 

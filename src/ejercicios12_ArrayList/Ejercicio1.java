@@ -1,6 +1,7 @@
 package ejercicios12_ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ejercicio1 {
@@ -10,11 +11,11 @@ public class Ejercicio1 {
 		Calcule la media.
 		Muestre los números inferiores a la media.*/
 	
-	public ArrayList<Double> leerNumeros() {
+	public List<Double> leerNumeros() {
 		Scanner scanner = new Scanner(System.in);
 		ConsoleInput console = new ConsoleInput(scanner);
 		
-        ArrayList<Double> numeros = new ArrayList<>();
+        List<Double> numeros = new ArrayList<>();
 		
         System.out.println("Las notas deben estar entre 0 y 10");
         for (int i = 0; i < 10; i++) {
@@ -26,7 +27,7 @@ public class Ejercicio1 {
         return numeros;
 	}
 	
-	public double media(ArrayList<Double> numeros) {
+	public double media(List<Double> numeros) {
 		double suma = 0;
 		
         for (double n : numeros) {
@@ -36,7 +37,7 @@ public class Ejercicio1 {
         return suma / numeros.size();
 	}
 	
-	public void numInferiores(ArrayList<Double> numeros, double media) {
+	public void numInferiores(List<Double> numeros, double media) {
 		for (double n : numeros) {
 			if (n<media) {
 				System.out.println(n);
@@ -45,7 +46,7 @@ public class Ejercicio1 {
 	}
 	
 	public void show() {
-		ArrayList<Double> numeros = leerNumeros();
+		List<Double> numeros = leerNumeros();
 		double media = media(numeros);
 		
 		System.out.printf("Calculamos la media: %.2f\n", media);

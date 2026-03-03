@@ -1,47 +1,51 @@
 package ejercicios12_ArrayList;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 public class Ejercicio2 {
 	
 	// Realiza un método genérico que reciba una lista y la devuelva invertida.
 	
-	public ArrayList<Integer> leerNumeros() {
-		Scanner scanner = new Scanner(System.in);
-		ConsoleInput console = new ConsoleInput(scanner);
+	public <T> List<T> invertir(List<T> lista) {
+		//se puede usar collections.reverse(lista);
+		List<T> listaInvertida= new ArrayList<>();
 		
-        ArrayList<Integer> numeros = new ArrayList<>();
-        int size;
-		
-        System.out.print("Introduzca el tamaño de la lista: ");
-        size = console.readInt();
-        for (int i = 0; i < size; i++) {
-            System.out.print("Número: " + (i + 1) + ": ");
-            int n = console.readInt();
-            numeros.add(n);
-        }
-        
-        return numeros;
+		for(int i=lista.size()-1; i>=0; i--) {
+			listaInvertida.add(lista.get(i));
+		}
+	    
+		return listaInvertida;  
 	}
 	
-	public ArrayList<Integer> invertirLista(ArrayList<Integer> numeros){
-		ArrayList<Integer> numerosInvertido = new ArrayList<>();
+	public <T> void mostrarLista(List<T> lista) { 
+		for(int i=0; i<lista.size(); i++) {
+			if (i == 0) {
+				System.out.printf("%s", lista.get(i)); 
+			} else {
+				System.out.printf(", %s", lista.get(i)); 
+			}
 
-		for (int i = numeros.size() - 1; i >= 0; i--) {
-			numerosInvertido.add(numeros.get(i));
 		}
-		
-		return numerosInvertido;
+		System.out.println();
 	}
 	
 	public void show() {
-		ArrayList<Integer> numeros = leerNumeros();
-		ArrayList<Integer> numerosInvertidos = invertirLista(numeros);
+		List<Integer> listaInteger= Arrays.asList(1, 2, 3, 4, 5);
+		List<String> listaString= Arrays.asList("Hola", "que", "tal", "estas");
 		
-		for (int n : numerosInvertidos) {
-			System.out.println(n);
-		}
+		System.out.println("Lista de enteros:");
+		mostrarLista(listaInteger);
+		
+		System.out.printf("\nLista de enteros invertida:\n");
+		mostrarLista(invertir(listaInteger));
+		
+		System.out.printf("\nLista de palabras:\n");
+		mostrarLista(listaString);
+		
+		System.out.printf("\nLista de String invertida:\n");
+		mostrarLista(invertir(listaString)); 
 	}
 	
 	public static void main(String[] args) {
