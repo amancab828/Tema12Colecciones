@@ -32,8 +32,8 @@ public class Ejercicio2 {
 	}
 	
 	public void show() {
-		List<Integer> listaInteger= Arrays.asList(1, 2, 3, 4, 5);
-		List<String> listaString= Arrays.asList("Hola", "que", "tal", "estas");
+		List<Integer> listaInteger = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+		List<String> listaString = new ArrayList<>(Arrays.asList("Hola", "que", "tal", "estas"));
 		
 		System.out.println("Lista de enteros:");
 		mostrarLista(listaInteger);
