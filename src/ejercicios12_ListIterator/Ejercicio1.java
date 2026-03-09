@@ -25,8 +25,8 @@ public class Ejercicio1 {
 		Scanner scanner = new Scanner(System.in);
 		ConsoleInput console = new ConsoleInput(scanner);
 		
-		List<String> lista = new ArrayList<>(List.of("Hola", "que", "tal", "estas?"));
-		ListIterator<String> it  = lista.listIterator();
+		List<Float> lista = new ArrayList<>(List.of(5.6f, 1.5f, 6.9f, 7.4f));
+		ListIterator<Float> it  = lista.listIterator();
         int opcion;
 
         do {
@@ -45,14 +45,14 @@ public class Ejercicio1 {
                 
                 case 3 -> {
                     if(!it.hasPrevious()) {
-                        it = lista.listIterator(lista.size());  // Volver al principio
+                        it = lista.listIterator(lista.size());  // Volver al final
                     }
                     System.out.println(it.previous());
                 }
 
                 case 4 -> {
                     System.out.print("Introduce cadena a añadir: ");
-                    String añadirCadena = console.readString();
+                    float añadirCadena = console.readFloat();
                     
                     it.add(añadirCadena);
                 }
@@ -68,7 +68,7 @@ public class Ejercicio1 {
                 case 6 -> {
                     try {
                         System.out.print("Introduce por lo que quiere cambiar la cadena: ");
-                        String cambiarCadena = console.readString();
+                        float cambiarCadena = console.readFloat();
                         it.set(cambiarCadena);
                     } catch (IllegalStateException e) {
                         System.out.println("Primero debes mostrar un elemento con siguiente o anterior.");
