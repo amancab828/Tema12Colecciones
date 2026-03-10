@@ -16,7 +16,10 @@ public class Ejercicio1 {
 		enumMeses1 = EnumSet.allOf(Meses.class);
 		System.out.printf("1. Todos los meses del año: %s", enumMeses1);
 		
-		enumMeses2 = EnumSet.range(Meses.JUNIO, Meses.AGOSTO);
+		enumMeses2 = EnumSet.noneOf(Meses.class); //Primero lo creamos vacio
+		// Luego los añadimos
+		enumMeses2.add(Meses.JULIO);
+		enumMeses2.add(Meses.AGOSTO);
 		System.out.printf("\n2. Los meses de verano: %s", enumMeses2);
 		
 		enumMeses3 = EnumSet.complementOf(enumMeses2);
